@@ -29,7 +29,10 @@ public class Player {
                 holeCardsrank.add(rank);
             }
         }
-        System.err.println("!!!!!!!!!!!!!!!!!!!!!!" + holeCardsrank);
+
+        if(holeCardsrank.get(0) == holeCardsrank.get(1)){
+            return 500;
+        }
 
         return 0;
     }
