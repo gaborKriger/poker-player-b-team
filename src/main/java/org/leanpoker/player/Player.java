@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +18,13 @@ public class Player {
         JsonArray players = root.getAsJsonArray("players");
         JsonArray communityCards = root.getAsJsonArray("community_cards");
 
+        List<String> holeCards = new ArrayList<>();
+
         for (int i = 0; i < players.size() ; i++) {
             JsonObject player = players.get(i).getAsJsonObject();
-            player.get("hole_cards");
+            String myCards = player.get("hole_cards").getAsString();
+            System.err.println(myCards);
+
         }
 
 
