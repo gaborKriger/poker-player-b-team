@@ -27,23 +27,22 @@ public class Player {
                 System.err.println("4");
                 JsonObject player = players.get(i).getAsJsonObject();
                 System.err.println("5");
-                JsonArray myCards = player.getAsJsonArray("hole_cards");
-                System.err.println("6");
-                System.out.println(myCards.toString() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 String name = player.get("name").toString();
-                System.err.println("6,5");
-
-                for (int j = 0; j < myCards.size(); j++) {
-                    System.err.println("7");
-                    JsonObject cards = myCards.get(j).getAsJsonObject();
-                    System.err.println("8");
-                    String rank = cards.get("rank").getAsString();
-                    holeCardsRank.add(rank);
-                    System.err.println("9");
-                }
-
 
                 if (name.equals("B team")) {
+                    JsonArray myCards = player.getAsJsonArray("hole_cards");
+                    System.err.println("6");
+                    System.out.println(myCards.toString() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.err.println("6,5");
+
+                    for (int j = 0; j < myCards.size(); j++) {
+                        System.err.println("7");
+                        JsonObject cards = myCards.get(j).getAsJsonObject();
+                        System.err.println("8");
+                        String rank = cards.get("rank").getAsString();
+                        holeCardsRank.add(rank);
+                        System.err.println("9");
+                    }
                     System.err.println("10");
                     myStack = player.get("stack").getAsInt();
                     System.err.println("11");
@@ -51,17 +50,14 @@ public class Player {
                         System.err.println("12");
                         return myStack;
                     }
-
                 }
-
-            return 0;
             }
+            return 0;
 
         } catch (Exception e) {
             return 0;
         }
 
-        return 0;
     }
 
     public static void showdown(JsonElement game) {
