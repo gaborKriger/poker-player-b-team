@@ -15,29 +15,39 @@ public class Player {
     public static int betRequest(JsonElement request) {
 
         try {
+            System.err.println("1");
             JsonObject root = request.getAsJsonObject();
+            System.err.println("2");
             JsonArray players = root.getAsJsonArray("players");
-
+            System.err.println("3");
             List<String> holeCardsRank = new ArrayList<>();
 
             for (int i = 0; i < players.size() ; i++) {
+                System.err.println("4");
                 JsonObject player = players.get(i).getAsJsonObject();
+                System.err.println("5");
                 JsonArray myCards = player.get("hole_cards").getAsJsonArray();
-
+                System.err.println("6");
                 String name = player.get("name").getAsString();
 
                 for (int j = 0; j < myCards.size(); j++) {
+                    System.err.println("7");
                     JsonObject cards = myCards.get(j).getAsJsonObject();
+                    System.err.println("8");
                     String rank = cards.get("rank").getAsString();
                     holeCardsRank.add(rank);
+                    System.err.println("9");
                 }
             }
 
             if(holeCardsRank.size() > 0){
+                System.err.println("10");
                 return 5;
-            } else {
-                return 2;
             }
+
+            System.err.println("11");
+            return 2;
+
 
 
         } catch (Exception e) {
