@@ -17,10 +17,8 @@ public class Player {
         try {
             JsonObject root = request.getAsJsonObject();
             JsonArray players = root.getAsJsonArray("players");
-            JsonArray communityCards = root.getAsJsonArray("community_cards");
 
-            List<String> holeCardsrank = new ArrayList<>();
-            int myStack;
+            List<String> holeCardsRank = new ArrayList<>();
 
             for (int i = 0; i < players.size() ; i++) {
                 JsonObject player = players.get(i).getAsJsonObject();
@@ -31,21 +29,11 @@ public class Player {
                 for (int j = 0; j < myCards.size(); j++) {
                     JsonObject cards = myCards.get(j).getAsJsonObject();
                     String rank = cards.get("rank").getAsString();
-                    holeCardsrank.add(rank);
+                    holeCardsRank.add(rank);
                 }
-
-
-                /*if(name.equals("B team")){
-                    myStack = player.get("stack").getAsInt();
-                    if(holeCardsrank.get(0).equals(holeCardsrank.get(1))){
-                        return myStack;
-                    }
-                }*/
-
-
             }
 
-            if(holeCardsrank.size() > 0){
+            if(holeCardsRank.size() > 0){
                 return 5;
             } else {
                 return 2;
