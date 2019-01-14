@@ -56,7 +56,6 @@ public class Player {
 
         } catch (Exception e) {
             return 0;
-
         }
 
     }
