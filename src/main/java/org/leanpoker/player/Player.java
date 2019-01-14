@@ -31,6 +31,7 @@ public class Player {
 
                 if (name.equals("B team")) {
                     System.err.println(name);
+                    System.err.println("5.5");
                     JsonArray myCards = player.getAsJsonArray("hole_cards");
                     System.err.println("6");
                     System.err.println(myCards + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
