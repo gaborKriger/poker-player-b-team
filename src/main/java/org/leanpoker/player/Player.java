@@ -28,11 +28,11 @@ public class Player {
                 JsonObject player = players.get(i).getAsJsonObject();
                 System.err.println("5");
                 String name = player.get("name").toString();
-
+                System.err.println(name);
                 if (name.equals("B team")) {
                     JsonArray myCards = player.getAsJsonArray("hole_cards");
                     System.err.println("6");
-                    System.out.println(myCards + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    System.err.println(myCards + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                     System.err.println("6,5");
 
                     for (int j = 0; j < myCards.size(); j++) {
