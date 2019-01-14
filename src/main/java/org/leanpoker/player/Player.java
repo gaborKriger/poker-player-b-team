@@ -29,7 +29,7 @@ public class Player {
                 System.err.println("5");
                 JsonArray myCards = player.getAsJsonArray("hole_cards");
                 System.err.println("6");
-                System.out.println(myCards.toString() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                System.out.println(myCards + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 String name = player.get("name").toString();
                 System.err.println("6,5");
 
