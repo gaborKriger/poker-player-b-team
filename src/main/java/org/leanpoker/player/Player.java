@@ -28,8 +28,9 @@ public class Player {
                 JsonObject player = players.get(i).getAsJsonObject();
                 System.err.println("5");
                 String name = player.getAsJsonPrimitive("name").getAsString();
+                String teamName = "B team";
 
-                if (name.equals("B team")) {
+                if (name.equals(teamName)) {
                     System.err.println(name);
                     System.err.println("5.5");
                     JsonArray myCards = player.getAsJsonArray("hole_cards");
