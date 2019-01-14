@@ -27,7 +27,7 @@ public class Player {
                 System.err.println("4");
                 JsonObject player = players.get(i).getAsJsonObject();
                 System.err.println("5");
-                String name = player.get("name").toString();
+                String name = player.getAsJsonPrimitive("name").getAsString();
 
                 if (name.equals("B team")) {
                     System.err.println(name);
