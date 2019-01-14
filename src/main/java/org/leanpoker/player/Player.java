@@ -15,9 +15,13 @@ public class Player {
 
         JsonObject root = request.getAsJsonObject();
         JsonArray players = root.getAsJsonArray("players");
-        for (int i = 0; i < players.size(); i++) {
+        JsonArray communityCards = root.getAsJsonArray("community_cards");
 
+        for (int i = 0; i < players.size() ; i++) {
+            JsonObject player = players.get(i).getAsJsonObject();
+            player.get("hole_cards");
         }
+
 
         return 0;
     }
