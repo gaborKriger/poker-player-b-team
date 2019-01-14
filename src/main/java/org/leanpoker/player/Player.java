@@ -21,12 +21,13 @@ public class Player {
             JsonArray players = root.getAsJsonArray("players");
             System.err.println("3");
             List<String> holeCardsRank = new ArrayList<>();
+            int myStack;
 
             for (int i = 0; i < players.size() ; i++) {
                 System.err.println("4");
                 JsonObject player = players.get(i).getAsJsonObject();
                 System.err.println("5");
-                JsonArray myCards = player.get("hole_cards").getAsJsonArray();
+                JsonArray myCards = player.getAsJsonArray("hole_cards");
                 System.err.println("6");
                 String name = player.get("name").getAsString();
 
@@ -38,15 +39,20 @@ public class Player {
                     holeCardsRank.add(rank);
                     System.err.println("9");
                 }
-            }
 
-            if(holeCardsRank.size() > 0){
-                System.err.println("10");
-                return 5;
-            }
 
-            System.err.println("11");
-            return 2;
+                if(name.equals("B team")){
+                    System.err.println("10");
+                    myStack = player.get("stack").getAsInt();
+                    System.err.println("11");
+                    if(holeCardsRank.get(0).equals(holeCardsRank.get(1))){
+                        System.err.println("12");
+                        return myStack;
+                    }
+                }
+
+
+
 
 
 
