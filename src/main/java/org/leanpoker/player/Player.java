@@ -30,6 +30,7 @@ public class Player {
                 String name = player.getAsJsonPrimitive("name").getAsString();
                 System.err.println("5.5");
                 String teamName = "B team";
+                System.err.println(name);
 
                 if (name.equals(teamName)) {
                     System.err.println(name);
