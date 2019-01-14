@@ -14,27 +14,34 @@ public class Player {
 
     public static int betRequest(JsonElement request) {
 
-        JsonObject root = request.getAsJsonObject();
-        JsonArray players = root.getAsJsonArray("players");
-        JsonArray communityCards = root.getAsJsonArray("community_cards");
+        try {
+            JsonObject root = request.getAsJsonObject();
+            JsonArray players = root.getAsJsonArray("players");
+            JsonArray communityCards = root.getAsJsonArray("community_cards");
 
-        List<String> holeCardsrank = new ArrayList<>();
+            List<String> holeCardsrank = new ArrayList<>();
 
-        for (int i = 0; i < players.size() ; i++) {
-            JsonObject player = players.get(i).getAsJsonObject();
-            JsonArray myCards = player.get("hole_cards").getAsJsonArray();
-            for (int j = 0; j < myCards.size(); j++) {
-                JsonObject cards = myCards.get(j).getAsJsonObject();
-                String rank = cards.get("rank").getAsString();
-                holeCardsrank.add(rank);
+            for (int i = 0; i < players.size() ; i++) {
+                JsonObject player = players.get(i).getAsJsonObject();
+                JsonArray myCards = player.get("hole_cards").getAsJsonArray();
+                for (int j = 0; j < myCards.size(); j++) {
+                    JsonObject cards = myCards.get(j).getAsJsonObject();
+                    String rank = cards.get("rank").getAsString();
+                    holeCardsrank.add(rank);
+                }
             }
+
+            if(holeCardsrank.get(0).equals(holeCardsrank.get(1))){
+                return 1000;
+            }
+
+            return 0;
+
+        } catch (Exception e) {
+            return 0;
+
         }
 
-        if(holeCardsrank.get(0) == holeCardsrank.get(1)){
-            return 500;
-        }
-
-        return 0;
     }
 
     public static void showdown(JsonElement game) {
