@@ -41,20 +41,18 @@ public class Player {
                 }
 
 
-                if(name.equals("B team")){
+                if (name.equals("B team")) {
                     System.err.println("10");
                     myStack = player.get("stack").getAsInt();
                     System.err.println("11");
-                    if(holeCardsRank.get(0).equals(holeCardsRank.get(1))){
+                    if (holeCardsRank.get(0).equals(holeCardsRank.get(1))) {
                         System.err.println("12");
                         return myStack;
                     }
                 }
 
 
-
-
-
+            }
 
         } catch (Exception e) {
             return 0;
