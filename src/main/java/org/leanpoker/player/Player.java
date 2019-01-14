@@ -18,14 +18,18 @@ public class Player {
         JsonArray players = root.getAsJsonArray("players");
         JsonArray communityCards = root.getAsJsonArray("community_cards");
 
-        List<String> holeCards = new ArrayList<>();
+        List<String> holeCardsrank = new ArrayList<>();
 
         for (int i = 0; i < players.size() ; i++) {
             JsonObject player = players.get(i).getAsJsonObject();
-            JsonObject myCards = player.get("hole_cards").getAsJsonObject();
-            System.err.println(myCards);
+            JsonArray myCards = player.get("hole_cards").getAsJsonArray();
+            for (int j = 0; j < myCards.size(); j++) {
+                JsonObject cards = myCards.get(j).getAsJsonObject();
+                String rank = cards.get("rank").getAsString();
+                holeCardsrank.add(rank);
+            }
         }
-
+        System.err.println("!!!!!!!!!!!!!!!!!!!!!!" + holeCardsrank);
 
         return 0;
     }
