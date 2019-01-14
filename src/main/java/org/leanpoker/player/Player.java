@@ -22,9 +22,8 @@ public class Player {
 
         for (int i = 0; i < players.size() ; i++) {
             JsonObject player = players.get(i).getAsJsonObject();
-            String myCards = player.get("hole_cards").getAsString();
+            JsonObject myCards = player.get("hole_cards").getAsJsonObject();
             System.err.println(myCards);
-
         }
 
 
