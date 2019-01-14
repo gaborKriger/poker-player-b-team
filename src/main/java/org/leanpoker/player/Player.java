@@ -58,9 +58,9 @@ public class Player {
 
                 }
 
-            return 0;
-            }
 
+            }
+            return 0;
         } catch (Exception e) {
             return 0;
         }
