@@ -34,12 +34,17 @@ public class Player {
                     holeCardsrank.add(rank);
                 }
 
-                if(name.equals("B team")){
+                if(holeCardsrank.size() > 0){
+                    return 5;
+                } else {
+                    return 2;
+                }
+                /*if(name.equals("B team")){
                     myStack = player.get("stack").getAsInt();
                     if(holeCardsrank.get(0).equals(holeCardsrank.get(1))){
                         return myStack;
                     }
-                }
+                }*/
 
 
             }
