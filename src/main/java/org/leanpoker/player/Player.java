@@ -29,7 +29,8 @@ public class Player {
                 System.err.println("5");
                 JsonArray myCards = player.getAsJsonArray("hole_cards");
                 System.err.println("6");
-                String name = player.get("name").getAsString();
+                String name = player.get("name").toString();
+                System.err.println("6,5");
 
                 for (int j = 0; j < myCards.size(); j++) {
                     System.err.println("7");
